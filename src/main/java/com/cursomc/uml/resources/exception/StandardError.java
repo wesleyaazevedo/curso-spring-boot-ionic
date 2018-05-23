@@ -1,4 +1,4 @@
-package com.cursomc.uml.services.exception;
+package com.cursomc.uml.resources.exception;
 
 import java.io.Serializable;
 
