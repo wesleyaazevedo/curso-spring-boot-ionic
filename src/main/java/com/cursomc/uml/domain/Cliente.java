@@ -30,14 +30,20 @@ public class Cliente implements Serializable{
 	private String CpfOrCnpj;
 	private Integer tipo;
 	
-	@ElementCollection
-	@CollectionTable(name="TELEFONE")
-	private Set<String> telefones = new HashSet<>(); //Possivel gravar Colecao de string sem haver repetição
-	
+	//Associacoes
 	@JsonManagedReference
 	@OneToMany(mappedBy="cliente")
 	private List<Endereco> enderecos = new ArrayList<>(); 
 	
+	@ElementCollection
+	@CollectionTable(name="TELEFONE")
+	private Set<String> telefones = new HashSet<>(); //Possivel gravar Colecao de string sem haver repetição
+	
+	@OneToMany(mappedBy="cliente")
+	private List<Pedido> pedidos = new ArrayList<>();
+	
+	
+	//Contrutores e Metodos
 	
 	public Cliente() {
 		//contrutor vazio
@@ -125,8 +131,15 @@ public class Cliente implements Serializable{
 		this.enderecos = enderecos;
 	}
 
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
 
-	
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
 
 	@Override
 	public int hashCode() {
@@ -153,8 +166,5 @@ public class Cliente implements Serializable{
 			return false;
 		return true;
 	}
-
-	
-	
 	
 }

@@ -17,7 +17,7 @@ public enum TipoCliente {
 		return cod;
 	}
 	
-	public String descricao(){ 
+	public String getDescricao(){ 
 		return descricao;
 	}
 	
