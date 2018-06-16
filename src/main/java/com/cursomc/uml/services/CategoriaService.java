@@ -22,9 +22,15 @@ public class CategoriaService {
 				+", Tipo: "+ Categoria.class.getName()));
 	}
 	
+	//Insere categoria se Id for nulo.
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
 		return repo.save(obj);
 	}
-
+	
+	//Atualiza categoria quando id não for nulo. 
+	public Categoria update(Categoria obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
 }
