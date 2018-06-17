@@ -1,5 +1,6 @@
 package com.cursomc.uml.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.cursomc.uml.domain.Categoria;
 import com.cursomc.uml.repositories.CategoriaRepository;
+import com.cursomc.uml.resources.dto.CategoriaDTO;
 import com.cursomc.uml.services.exceptions.DataIntegrityException;
 import com.cursomc.uml.services.exceptions.ObjectNotFoundException;
 
@@ -46,4 +48,9 @@ public class CategoriaService {
 			throw new DataIntegrityException("Não é possível excluir uma categoria com produtos cadastrados.");
 		}
 	}
+	
+	public List<Categoria> findAll(){
+		return repo.findAll();
+	}
+	
 }
