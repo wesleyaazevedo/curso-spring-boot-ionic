@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.cursomc.uml.domain.Categoria;
 import com.cursomc.uml.repositories.CategoriaRepository;
+import com.cursomc.uml.resources.dto.CategoriaDTO;
 import com.cursomc.uml.services.exceptions.DataIntegrityException;
 import com.cursomc.uml.services.exceptions.ObjectNotFoundException;
 
@@ -58,6 +59,11 @@ public class CategoriaService {
 	public Page<Categoria> findPage(Integer page, Integer linesPerPage,String orderBy, String direction){
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		return repo.findAll(pageRequest);
+	}
+	
+	//Converte uma categoriaDTO para uma Categoria
+	public Categoria fromDTO(CategoriaDTO objDTO) {
+		return new Categoria(objDTO.getId(), objDTO.getNome());
 	}
 	
 }
