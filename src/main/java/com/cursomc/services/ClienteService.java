@@ -23,6 +23,7 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository repo;
 	
+	
 	public Cliente find(Integer id) {
 		Optional <Cliente> obj = repo.findById(id);
 			
@@ -30,15 +31,14 @@ public class ClienteService {
 				+", Tipo: "+ Cliente.class.getName()));
 	}
 
-
-	//Atualiza categoria quando id não for nulo. 
+	 
 	public Cliente update(Cliente obj) {
 		Cliente newObj =  find(obj.getId());
 		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
 	
-	//Deletar Cliente
+
 	public void delete(Integer id) {
 		find(id);
 		try {
@@ -58,7 +58,7 @@ public class ClienteService {
 		return repo.findAll(pageRequest);
 	}
 	
-	//Converte uma categoriaDTO para uma Cliente
+	
 	public Cliente fromDTO(ClienteDTO objDTO) {
 		return new Cliente(objDTO.getId(), objDTO.getNome(),objDTO.getEmail(),null,null);
 	}
