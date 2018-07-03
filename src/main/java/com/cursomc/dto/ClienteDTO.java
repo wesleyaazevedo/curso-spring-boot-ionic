@@ -23,6 +23,7 @@ public class ClienteDTO implements Serializable {
 	private String email;
 	
 		
+	@SuppressWarnings("unused")
 	private ClienteDTO() {		
 	}
 
