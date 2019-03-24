@@ -73,25 +73,34 @@ public class CursoMcApplication implements CommandLineRunner {
 		Categoria cat9 = new Categoria(null, "Perifericos");
 		Categoria cat10 = new Categoria(null, "Eletrônicos");
 		Categoria cat11 = new Categoria(null, "Automação");
-		Categoria cat12 = new Categoria(null, "Segurança");
-		Categoria cat13 = new Categoria(null, "Som & Imagem");
-		Categoria cat14 = new Categoria(null, "Ferramentas");
-		Categoria cat15 = new Categoria(null, "Instrumentos Musicais");
-		Categoria cat16 = new Categoria(null, "Redes");
-		
+				
 		Produto p1 = new Produto(null,"Computador", 4000.00);
 		Produto p2 = new Produto (null,"Impressora", 1000.00);
 		Produto p3 = new Produto (null, "Mouse", 120.00);
+		Produto p4 = new Produto(null, "Mesa de escritório", 300.00);
+		Produto p5 = new Produto(null, "Toalha", 50.00);
+		Produto p6 = new Produto(null, "Colcha", 200.00);
+		Produto p7 = new Produto(null, "TV true color", 1200.00);
+		Produto p8 = new Produto(null, "Roçadeira", 800.00);
+		Produto p9 = new Produto(null, "Abajour", 100.00);
+		Produto p10 = new Produto(null, "Pendente", 180.00);
+		Produto p11 = new Produto(null, "Shampoo", 90.00);
 		
 		cat1.getProdutos().addAll(Arrays.asList(p1,p2,p3));
 		cat2.getProdutos().addAll(Arrays.asList(p2));
+		cat2.getProdutos().addAll(Arrays.asList(p2, p4));
+		cat3.getProdutos().addAll(Arrays.asList(p5, p6));
+		cat4.getProdutos().addAll(Arrays.asList(p1, p2, p3, p7));
+		cat5.getProdutos().addAll(Arrays.asList(p8));
+		cat6.getProdutos().addAll(Arrays.asList(p9, p10));
+		cat7.getProdutos().addAll(Arrays.asList(p11));
 		
 		p1.getCategorias().addAll(Arrays.asList(cat1));
 		p2.getCategorias().addAll(Arrays.asList(cat1,cat2));
 		p3.getCategorias().addAll(Arrays.asList(cat1));
 		
-		categoriaRepository.saveAll(Arrays.asList(cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8,
-												 cat9,cat10,cat11,cat12,cat13,cat14,cat15,cat16));
+		produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
+		
 		produtoRepository.saveAll(Arrays.asList(p1,p2,p3));
 		
 		Estado est1 = new Estado(null, "Minas Gerais");
@@ -147,8 +156,7 @@ public class CursoMcApplication implements CommandLineRunner {
 		p3.getItens().addAll(Arrays.asList(ip2));
 		
 		itemPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3));
-		
-		
-		
+			
 	}
+
 }
